@@ -26,6 +26,17 @@ const CREATOR_URL = `https://github.com/anatawa12/VPMPackageAutoInstaller/releas
 
 const listingUrl = 'https://reframe.illusive-isc.jp/vpm/index.json';
 
+// 依存の取得元も一緒に登録する。VPMPackageAutoInstaller は「公式 (official) と
+// curated 以外は自分で並べること」という決まりで、NDMF / Modular Avatar /
+// Avatar Optimizer / lilToon は**どちらにも入っていない** (curated は AudioLink や
+// Gesture Manager など 8 個だけ)。並べておかないと、それらが未導入のプロジェクトで
+// 「パッケージが見つからない」で失敗する。
+const dependencyListings = [
+	'https://vpm.nadena.dev/vpm.json', // nadena.dev.ndmf / nadena.dev.modular-avatar
+	'https://vpm.anatawa12.com/vpm.json', // com.anatawa12.avatar-optimizer
+	'https://lilxyzw.github.io/vpm-repos/vpm.json' // jp.lilxyzw.liltoon
+];
+
 // 配るのはアバター用だけ。Core は依存として一緒に入る。
 // Core だけを直したときは、アバター用の依存の下限も上げて同時に出すこと。
 const targets = [
@@ -53,7 +64,8 @@ for (const target of targets) {
 		JSON.stringify(
 			{
 				vpmDependencies: { [target.id]: target.range },
-				vpmRepositories: [{ url: listingUrl }]
+				// 文字列の配列で書く (オブジェクト形式は headers を付けたいとき用)。
+				vpmRepositories: [listingUrl, ...dependencyListings]
 			},
 			null,
 			2

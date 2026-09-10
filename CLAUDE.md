@@ -38,3 +38,4 @@ ReFrame (VRChat アバターの非破壊ギミック削除 / Quest 簡易対応�
 - 共有画像は `static/og-image.png` (1200x630)。`npm run icons` が `scripts/make-icons.mjs` (ファビコン各サイズ) と `scripts/make-og.mjs` (OGP 画像) を続けて動かす。元画像は `static/icon-source.png`。
 - 構造化データ (SoftwareApplication の JSON-LD) は `+layout.svelte`。`robots.txt` は sitemap を指す。
 - `site.twitter` に X のアカウント (@ 付き) を入れると `twitter:site` / `twitter:creator` が出る。空なら出さない。
+- クローラー: `static/robots.txt` で検索エンジンとリンクのプレビュー (Twitterbot / facebookexternalhit / Discordbot) は許可し、学習用の収集 (GPTBot / ClaudeBot / CCBot / Google-Extended / Applebot-Extended / Bytespider など) は拒否する。`+layout.svelte` に `robots: noai, noimageai` も入れてある。

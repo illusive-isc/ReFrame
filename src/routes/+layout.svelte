@@ -42,6 +42,9 @@
 	<link rel="apple-touch-icon" href="{base}/apple-touch-icon.png" />
 	<link rel="manifest" href="{base}/site.webmanifest" />
 	<meta name="theme-color" content="#7d4fd6" />
+	<!-- 検索は許可、学習用の収集は拒否 (robots.txt と対で使う) -->
+	<meta name="robots" content="index, follow, max-image-preview:large" />
+	<meta name="robots" content="noai, noimageai" />
 	<meta name="author" content={site.author.name} />
 	<meta
 		name="keywords"

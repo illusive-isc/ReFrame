@@ -9,6 +9,7 @@
 
 	const nav = [
 		{ href: `${base}/`, label: 'はじめに' },
+		{ href: `${base}/install/`, label: '導入と更新' },
 		{ href: `${base}/guide/`, label: '導入手順' },
 		{ href: `${base}/packages/`, label: 'パッケージ' },
 		{ href: `${base}/changelog/`, label: '更新履歴' }

@@ -31,13 +31,15 @@ export const site = {
 			id: 'jp.illusive-isc.reframe-kaguya',
 			name: 'ReFrame for kaguya',
 			repo: 'illusive-isc/ReFrameForKaguya',
-			summary: 'kaguya (IKUSIA) 用の宣言。衣装・ギミック・エモートの行と Quest 用の設定。'
+			summary: 'kaguya (IKUSIA) 用の宣言。衣装・ギミック・エモートの行と Quest 用の設定。',
+			avatar: 'kaguya'
 		},
 		{
 			id: 'jp.illusive-isc.reframe-rurune',
 			name: 'ReFrame for rurune',
 			repo: 'illusive-isc/ReFrameForRurune',
-			summary: 'rurune (IKUSIA) 用の宣言。'
+			summary: 'rurune (IKUSIA) 用の宣言。',
+			avatar: 'rurune'
 		}
 	]
 };
@@ -65,6 +67,13 @@ export const pages = [
 		priority: '0.7'
 	},
 	{
+		path: '/install/',
+		title: '導入と更新',
+		description:
+			'ReFrame を取り込むだけで入れられる unitypackage の配布ページ。VCC を開かずに、最新版の導入と更新ができます。',
+		priority: '0.8'
+	},
+	{
 		path: '/changelog/',
 		title: '更新履歴',
 		description: 'ReFrame の各パッケージの更新履歴と、GitHub の CHANGELOG / Releases へのリンク。',
@@ -74,6 +83,10 @@ export const pages = [
 
 /** VCC に一覧を追加するリンク */
 export const vccAddRepoUrl = `vcc://vpm/addRepo?url=${encodeURIComponent(site.listingUrl)}`;
+
+/** 取り込むだけで入る unitypackage の URL (scripts/build-installers.mjs が作る) */
+export const installerUrl = (packageId: string) =>
+	`${basePath}/install/${packageId}-installer.unitypackage`;
 
 /** サイト内のパスを絶対 URL にする */
 export const absolute = (path: string) => site.url + (path.startsWith('/') ? path : `/${path}`);

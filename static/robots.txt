@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://refreme.illusive-isc.jp/sitemap.xml
+Sitemap: https://reframe.illusive-isc.jp/sitemap.xml
 
 # 学習用にページと画像を集めるクローラーは拒否する
 User-agent: GPTBot

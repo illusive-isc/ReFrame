@@ -35,7 +35,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 独自ドメイン (refreme.illusive-isc.jp) をルートで使うので BASE_PATH は付けない
+          # 独自ドメイン (reframe.illusive-isc.jp) をルートで使うので BASE_PATH は付けない
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build

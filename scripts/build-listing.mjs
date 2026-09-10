@@ -17,7 +17,7 @@ const outPath = resolve(root, 'static/vpm/index.json');
 const listing = {
 	name: 'illusive_isc ReFrame',
 	id: 'jp.illusive-isc.reframe',
-	url: 'https://refreme.illusive-isc.jp/vpm/index.json',
+	url: 'https://reframe.illusive-isc.jp/vpm/index.json',
 	author: 'illusive_isc',
 	repos: ['illusive-isc/ReFrameCore', 'illusive-isc/ReFrameForKaguya', 'illusive-isc/ReFrameForRurune']
 };

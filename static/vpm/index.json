@@ -1,7 +1,7 @@
 {
   "name": "illusive_isc ReFrame",
   "id": "jp.illusive-isc.reframe",
-  "url": "https://refreme.illusive-isc.jp/vpm/index.json",
+  "url": "https://reframe.illusive-isc.jp/vpm/index.json",
   "author": "illusive_isc",
   "packages": {
     "jp.illusive-isc.reframe-core": {

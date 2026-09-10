@@ -25,20 +25,20 @@ export const site = {
 			id: 'jp.illusive-isc.reframe-core',
 			name: 'ReFrameCore',
 			repo: 'illusive-isc/ReFrameCore',
-			summary: '削除・Quest 簡易対応・Inspector の共通の仕組み。アバター用パッケージが依存する土台。'
+			summary: 'ReFrame の共通部分。アバター用のパッケージを入れると、依存として一緒に入ります。'
 		},
 		{
 			id: 'jp.illusive-isc.reframe-kaguya',
 			name: 'ReFrame for kaguya',
 			repo: 'illusive-isc/ReFrameForKaguya',
-			summary: 'kaguya (IKUSIA) 用の宣言。衣装・ギミック・エモートの行と Quest 用の設定。',
+			summary: '輝夜用のパッケージ。消せる衣装・ギミック・エモートの一覧と、Quest 用の設定。',
 			avatar: 'kaguya'
 		},
 		{
 			id: 'jp.illusive-isc.reframe-rurune',
 			name: 'ReFrame for rurune',
 			repo: 'illusive-isc/ReFrameForRurune',
-			summary: 'rurune (IKUSIA) 用の宣言。',
+			summary: 'ルルネ用のパッケージ。消せる衣装・ギミックの一覧と、Quest 用の設定。',
 			avatar: 'rurune'
 		}
 	]

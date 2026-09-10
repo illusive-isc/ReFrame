@@ -6,7 +6,15 @@
 	const page = pages.find((p) => p.path === '/install/')!;
 
 	// 配るのはアバター用だけ。共通部分は依存として一緒に入る。
-	const avatars = site.packages.filter((p) => 'avatar' in p);
+	// ここは「どちらを落とせばよいか」だけ分かればよいので、説明は短くする
+	// (パッケージの中身の説明は /packages/ にある)。
+	const blurbs: Record<string, string> = {
+		'jp.illusive-isc.reframe-kaguya': '輝夜用のパッケージです。',
+		'jp.illusive-isc.reframe-rurune': 'ルルネ用のパッケージです。'
+	};
+	const avatars = site.packages
+		.filter((p) => 'avatar' in p)
+		.map((p) => ({ ...p, blurb: blurbs[p.id] ?? p.summary }));
 </script>
 
 <Seo title={page.title} description={page.description} path={page.path} />
@@ -31,7 +39,7 @@
 	{#each avatars as pkg}
 		<div class="card">
 			<h3>{pkg.name}</h3>
-			<p>{pkg.summary}</p>
+			<p>{pkg.blurb}</p>
 			<a class="button" href={installerUrl(pkg.id)} download>ダウンロード</a>
 		</div>
 	{/each}

@@ -18,6 +18,10 @@
 		download?: boolean;
 	} = $props();
 
+	// download は真偽値で受けるが、属性に true をそのまま渡すと
+	// 保存名が "true" になってしまう。href の末尾 (ファイル名) を渡す。
+	const downloadName = $derived(download ? decodeURIComponent(href.split('/').pop() ?? '') : undefined);
+
 	const kind = $derived(
 		href.startsWith('vcc:')
 			? 'app'
@@ -32,7 +36,7 @@
 <a
 	{href}
 	class={className}
-	download={download || undefined}
+	download={downloadName}
 	target={kind === 'external' ? '_blank' : undefined}
 	rel={kind === 'external' ? 'noopener' : undefined}
 >{@render children()}{#if kind === 'external'}<span class="mark" aria-hidden="true">↗</span><span

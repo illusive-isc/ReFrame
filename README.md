@@ -1,11 +1,11 @@
 # ReFrame 公開サイト
 
-[ReFrame](https://illusive-isc.github.io/ReFrame/) の説明ページと、VPM の一覧 (VCC 用リポジトリ) を配るための静的サイト。
+[ReFrame](https://refreme.illusive-isc.jp/) の説明ページと、VPM の一覧 (VCC 用リポジトリ) を配るための静的サイト。
 
-- 公開先: <https://illusive-isc.github.io/ReFrame/>
-- VPM の一覧: <https://illusive-isc.github.io/ReFrame/vpm/index.json>
+- 公開先: <https://refreme.illusive-isc.jp/>
+- VPM の一覧: <https://refreme.illusive-isc.jp/vpm/index.json>
 
-ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除くツールです。使い方はサイトの[導入手順](https://illusive-isc.github.io/ReFrame/guide/)を見てください。
+ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除くツールです。使い方はサイトの[導入手順](https://refreme.illusive-isc.jp/guide/)を見てください。
 
 ## 開発
 

@@ -23,7 +23,8 @@
 
 <h1>導入と更新</h1>
 <p class="lead">
-	使うアバターのファイルを Unity に取り込むだけで、ReFrame の最新版が入ります。更新のときも同じ手順です。
+	UnityPackage を利用して VCC へ登録します。使うアバターのファイルを Unity
+	に取り込むと、一覧の登録とパッケージの追加が自動で行われます。更新のときも同じ手順です。
 </p>
 
 <h2>手順</h2>
@@ -62,8 +63,8 @@
 <h2>VCC で管理したい場合</h2>
 
 <p>
-	上のファイルを使うと、VRChat Creator Companion (と ALCOM) にも ReFrame の一覧が登録されます。以降は
-	VCC の Manage Packages からも更新できます。
+	上のファイルを取り込むと、VRChat Creator Companion (と ALCOM) に ReFrame
+	の一覧が登録されます。以降は VCC の Manage Packages からも更新できます。
 </p>
 
 <p>

@@ -19,24 +19,26 @@
 	<h3>追加する</h3>
 	<p>方法は 2 つあります。どちらでも同じものが入り、共通部分の ReFrameCore は依存として一緒に入ります。</p>
 
-	<h4>インストーラーで追加する</h4>
+	<h4>インストーラーで追加する (自動)</h4>
 	<p>
-		使うアバターのファイルを Unity に取り込むだけで入ります。VCC を開く必要はありません。更新のときも同じ手順です。
+		UnityPackage を利用して VCC へ登録します。使うアバターのファイルを Unity
+		に取り込むと、一覧の登録とパッケージの追加がまとめて行われます。VCC
+		の画面を操作する必要はありません。更新のときも同じ手順です。
 	</p>
 	<p>
 		<Link class="button" href="{base}/install/">インストーラーで追加</Link>
 	</p>
 
-	<h4>VCC に追加する</h4>
+	<h4>VCC に追加する (手動)</h4>
 	<p>
-		VRChat Creator Companion に一覧を登録します。登録後、プロジェクトの Manage Packages から使うアバターの
-		<strong>ReFrame for …</strong> を追加してください。
+		VRChat Creator Companion に一覧を自分で登録します。登録後、プロジェクトの Manage Packages
+		から使うアバターの <strong>ReFrame for …</strong> を追加してください。
 	</p>
 	<p>
 		<Link class="button secondary" href={vccAddRepoUrl}>VCC に一覧を追加</Link>
 		<Link class="button secondary" href="{base}/guide/">導入手順を読む</Link>
 	</p>
-	<p>手で登録する場合の URL: <code>{site.listingUrl}</code></p>
+	<p>手動で登録する場合の URL: <code>{site.listingUrl}</code></p>
 </div>
 
 <h2>できること</h2>

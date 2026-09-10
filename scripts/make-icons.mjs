@@ -32,8 +32,7 @@ const outputs = [
 	['static/favicon-48.png', 48],
 	['static/apple-touch-icon.png', 180],
 	['static/icon-192.png', 192],
-	['static/icon-512.png', 512],
-	['static/og-image.png', 512]
+	['static/icon-512.png', 512]
 ];
 
 await mkdir(resolve(root, 'static'), { recursive: true });

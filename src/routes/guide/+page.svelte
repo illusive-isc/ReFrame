@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { site, vccAddRepoUrl } from '$lib/site';
+	import { pages, site, vccAddRepoUrl } from '$lib/site';
+	import Seo from '$lib/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>導入手順 - {site.name}</title>
-</svelte:head>
+<Seo title={pages[1].title} description={pages[1].description} path={pages[1].path} />
 
 <h1>導入手順</h1>
 <p class="lead">VCC への登録から Quest 用の設定、アップロードまで。</p>

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { site } from '$lib/site';
+	import { pages, site } from '$lib/site';
+	import Seo from '$lib/Seo.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -21,9 +22,7 @@
 	);
 </script>
 
-<svelte:head>
-	<title>パッケージ - {site.name}</title>
-</svelte:head>
+<Seo title={pages[2].title} description={pages[2].description} path={pages[2].path} />
 
 <h1>パッケージ</h1>
 <p class="lead">一覧 (<code>{site.listingUrl}</code>) に載っている最新版です。</p>

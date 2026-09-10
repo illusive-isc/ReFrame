@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { site } from '$lib/site';
+	import { pages, site } from '$lib/site';
+	import Seo from '$lib/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>更新履歴 - {site.name}</title>
-</svelte:head>
+<Seo title={pages[3].title} description={pages[3].description} path={pages[3].path} />
 
 <h1>更新履歴</h1>
 <p class="lead">各パッケージの CHANGELOG.md へのリンクと、主な変更の要約。</p>

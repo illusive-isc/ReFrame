@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { site, vccAddRepoUrl } from '$lib/site';
+	import { pages, site, vccAddRepoUrl } from '$lib/site';
+	import Seo from '$lib/Seo.svelte';
 </script>
+
+<Seo title={pages[0].title} description={pages[0].description} path={pages[0].path} />
 
 <h1>{site.name}</h1>
 <p class="lead">{site.tagline}</p>

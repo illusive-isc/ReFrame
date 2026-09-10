@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
-	import { site } from '$lib/site';
+	import { absolute, site } from '$lib/site';
 	import CircuitBackground from '$lib/CircuitBackground.svelte';
 	import '../app.css';
 
@@ -15,20 +15,39 @@
 	];
 
 	const isCurrent = (href: string) => page.url.pathname === href;
+
+	// 検索結果に出す構造化データ (Unity 向けのソフトウェア)
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'SoftwareApplication',
+		name: site.name,
+		description: site.description,
+		url: site.url,
+		image: absolute('/og-image.png'),
+		applicationCategory: 'DeveloperApplication',
+		operatingSystem: 'Windows',
+		softwareRequirements: 'Unity 2022.3, VRChat SDK Avatars 3.7+, NDMF, Modular Avatar',
+		inLanguage: 'ja',
+		isAccessibleForFree: true,
+		offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+		author: { '@type': 'Person', name: site.author.name, url: site.author.url },
+		license: 'https://opensource.org/licenses/MIT'
+	};
 </script>
 
 <svelte:head>
-	<title>{site.name}</title>
-	<meta name="description" content={site.tagline} />
 	<link rel="icon" href="{base}/favicon.ico" sizes="any" />
 	<link rel="icon" type="image/png" sizes="32x32" href="{base}/favicon-32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="{base}/favicon-16.png" />
 	<link rel="apple-touch-icon" href="{base}/apple-touch-icon.png" />
 	<link rel="manifest" href="{base}/site.webmanifest" />
-	<meta property="og:title" content={site.name} />
-	<meta property="og:description" content={site.tagline} />
-	<meta property="og:image" content="{base}/og-image.png" />
-	<meta name="twitter:card" content="summary" />
+	<meta name="theme-color" content="#7d4fd6" />
+	<meta name="author" content={site.author.name} />
+	<meta
+		name="keywords"
+		content="VRChat, アバター, ギミック削除, 軽量化, Quest, NDMF, Modular Avatar, AvatarOptimizer, ReFrame"
+	/>
+	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>`}
 </svelte:head>
 
 <CircuitBackground />

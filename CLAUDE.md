@@ -30,3 +30,11 @@ ReFrame (VRChat アバターの非破壊ギミック削除 / Quest 簡易対応�
 
 - 応答は日本語。文章は利用者向けの説明として、短い文で。
 - 手順の本文は `src/routes/guide/+page.svelte` にあり、パッケージの README と内容を揃える。
+
+## SEO / OGP
+
+- `src/lib/Seo.svelte` を各ページで使い、title / description / canonical / OGP / Twitter カード (summary_large_image) を出す。**URL はすべて絶対** (`site.absolute()`。相対だと Twitter がカードを出さない)。
+- ページごとの title と description は `src/lib/site.ts` の `pages` にまとめてある。sitemap.xml もここから作る (`src/routes/sitemap.xml/+server.ts`)。
+- 共有画像は `static/og-image.png` (1200x630)。`npm run icons` が `scripts/make-icons.mjs` (ファビコン各サイズ) と `scripts/make-og.mjs` (OGP 画像) を続けて動かす。元画像は `static/icon-source.png`。
+- 構造化データ (SoftwareApplication の JSON-LD) は `+layout.svelte`。`robots.txt` は sitemap を指す。
+- `site.twitter` に X のアカウント (@ 付き) を入れると `twitter:site` / `twitter:creator` が出る。空なら出さない。

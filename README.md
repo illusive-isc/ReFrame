@@ -1,36 +1,34 @@
-# ReFrame 公開サイト
+# ReFrame
 
-[ReFrame](https://reframe.illusive-isc.jp/) の説明ページと、VPM の一覧 (VCC 用リポジトリ) を配るための静的サイト。
+IKUSIA アバターのギミックを、壊さずに減らす。
 
-- 公開先: <https://reframe.illusive-isc.jp/>
-- VPM の一覧: <https://reframe.illusive-isc.jp/vpm/index.json>
+<https://reframe.illusive-isc.jp/>
 
-ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除くツールです。使い方はサイトの[導入手順](https://reframe.illusive-isc.jp/guide/)を見てください。
+ReFrame は、VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除くツールです。シーンのアバターはそのままなので、いつでも元に戻せます。
 
-## 開発
+Quest 向けには、マテリアルの焼き込みや揺れ物の間引きまで含めた「Quest 簡易対応」を、PC 用とは別の設定として持てます。
 
-```sh
-npm install
-npm run dev       # 開発サーバー
-npm run build     # 一覧の再生成 + 静的書き出し (build/)
-npm run preview   # 書き出したものを確認
-npm run listing   # VPM 一覧だけ再生成 (GITHUB_TOKEN があると API の制限が緩い)
+## このリポジトリについて
+
+上のサイトを置いている場所です。サイトでは次のことを案内しています。
+
+- [はじめに](https://reframe.illusive-isc.jp/) — できることの紹介と、VCC への登録
+- [導入手順](https://reframe.illusive-isc.jp/guide/) — 導入から Quest 用の設定、アップロードまで
+- [パッケージ](https://reframe.illusive-isc.jp/packages/) — 配布しているパッケージの一覧
+- [更新履歴](https://reframe.illusive-isc.jp/changelog/) — 各版の変更点
+
+## 導入
+
+サイトの[はじめに](https://reframe.illusive-isc.jp/)にあるボタンから、VRChat Creator Companion に一覧を登録できます。
+
+手で登録する場合は、VCC の Settings → Packages → Add Repository に次の URL を入れてください。
+
+```
+https://reframe.illusive-isc.jp/vpm/index.json
 ```
 
-サブパスで公開するので、手元で本番と同じ形を見るときは `BASE_PATH=/ReFrame npm run build`。
+登録したら、対象プロジェクトの Manage Packages で、使うアバターに合わせたパッケージを追加します。共通部分は依存として自動で入ります。
 
-## VPM 一覧の作られ方
+## 作者
 
-`scripts/build-listing.mjs` が ReFrameCore / ReFrameForKaguya / ReFrameForRurune の GitHub Release を読み、
-添付された zip・package.json・.sha256 から `static/vpm/index.json` を組み立てます。
-
-公開は GitHub Actions (`.github/workflows/deploy.yml`) が行います。動くきっかけは次の 4 つ。
-
-- main への push
-- 手動実行
-- 各パッケージが Release を作った後に送る通知 (`repository_dispatch`)
-- 毎日 1 回 (通知が届かなかったときの保険)
-
-パッケージ側から通知を送るには、各パッケージのリポジトリに `SITE_DISPATCH_TOKEN`
-(このリポジトリへの contents:write を持つ Fine-grained PAT) を Secrets として登録します。
-無い場合は警告を出して飛ばすので、リリース自体は失敗しません。
+[illusive_isc](https://github.com/illusive-isc)

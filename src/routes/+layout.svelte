@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { site } from '$lib/site';
@@ -19,9 +18,17 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
 	<title>{site.name}</title>
 	<meta name="description" content={site.tagline} />
+	<link rel="icon" href="{base}/favicon.ico" sizes="any" />
+	<link rel="icon" type="image/png" sizes="32x32" href="{base}/favicon-32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="{base}/favicon-16.png" />
+	<link rel="apple-touch-icon" href="{base}/apple-touch-icon.png" />
+	<link rel="manifest" href="{base}/site.webmanifest" />
+	<meta property="og:title" content={site.name} />
+	<meta property="og:description" content={site.tagline} />
+	<meta property="og:image" content="{base}/og-image.png" />
+	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
 <CircuitBackground />

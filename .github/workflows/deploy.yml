@@ -1,6 +1,9 @@
 # サイトを build して GitHub Pages に出す。
-# 起動: このリポジトリへの push / 手動 / パッケージの Release 後の repository_dispatch / 1 日 1 回 (保険)。
+# 起動: このリポジトリへの push / 手動 / パッケージの Release 後の repository_dispatch / 30 分ごと。
 # build の中で scripts/build-listing.mjs が GitHub Release から VPM の一覧 (vpm/index.json) を作り直す。
+#
+# 30 分ごとの実行では、まず check ジョブが一覧だけを組み立てて公開中のものと見比べ、
+# 中身が変わったときだけ build と deploy に進む。無駄なデプロイをしないための仕組み。
 name: Deploy site
 
 on:
@@ -10,7 +13,7 @@ on:
   repository_dispatch:
     types: [package-released]
   schedule:
-    - cron: "0 18 * * *" # 毎日 03:00 JST
+    - cron: "*/30 * * * *"
 
 permissions:
   contents: read
@@ -19,10 +22,34 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # 公開中のデプロイを途中で止めない
+  cancel-in-progress: false
 
 jobs:
+  # 定期実行のときだけ、一覧に変化があるかを先に調べる。
+  # build-listing.mjs は Node の標準機能だけで動くので npm ci は不要。
+  check:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build listing
+        run: node scripts/build-listing.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Compare with published listing
+        id: diff
+        run: node scripts/listing-changed.mjs
+
   build:
+    needs: [check]
+    # 定期実行以外は常に、定期実行なら一覧が変わったときだけ動かす
+    if: always() && (github.event_name != 'schedule' || needs.check.outputs.changed == 'true')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

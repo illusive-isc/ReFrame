@@ -73,4 +73,8 @@
 <footer class="site-footer">
 	<span>© {new Date().getFullYear()} <a href={site.author.url}>{site.author.name}</a></span>
 	<span>VPM: <code>{site.listingUrl}</code></span>
+	<span>
+		問い合わせ:
+		<a href={site.contact.url} target="_blank" rel="noopener">{site.contact.handle}</a> へ DM
+	</span>
 </footer>

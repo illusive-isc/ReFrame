@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { installerUrl, pages, site, vccAddRepoUrl } from '$lib/site';
+	import Contact from '$lib/Contact.svelte';
 	import Seo from '$lib/Seo.svelte';
 
 	const page = pages.find((p) => p.path === '/install/')!;
@@ -82,6 +83,8 @@
 	手動で入れる方法は <a href="{base}/guide/">導入手順</a> にあります。各パッケージの zip は
 	<a href="{base}/packages/">パッケージ</a> から取得できます。
 </p>
+
+<Contact />
 
 <div class="note">
 	<p>

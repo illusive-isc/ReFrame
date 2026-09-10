@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { pages, site, vccAddRepoUrl } from '$lib/site';
+	import Contact from '$lib/Contact.svelte';
 	import Seo from '$lib/Seo.svelte';
 </script>
 
@@ -58,3 +59,5 @@
 		<li>消えて困る物があれば、その項目を維持に戻すか、「使わなくなったモノの片付け」を「AAO にお任せする」に切り替えてください。</li>
 	</ul>
 </div>
+
+<Contact />

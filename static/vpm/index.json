@@ -150,6 +150,37 @@
     },
     "jp.illusive-isc.reframe-kaguya": {
       "versions": {
+        "0.0.5": {
+          "name": "jp.illusive-isc.reframe-kaguya",
+          "version": "0.0.5",
+          "displayName": "ReFrame for kaguya",
+          "description": "輝夜用のパッケージです。消す対象 (衣装・ギミック類) 及び Quest 対応用の差分設定。",
+          "unity": "2022.3",
+          "author": {
+            "name": "illusive_isc",
+            "url": "https://illusive_isc.jp"
+          },
+          "vpmDependencies": {
+            "jp.illusive-isc.reframe-core": ">=0.0.4",
+            "nadena.dev.ndmf": ">=1.6.0",
+            "nadena.dev.modular-avatar": ">=1.13.0",
+            "com.vrchat.avatars": ">=3.7.0",
+            "com.anatawa12.avatar-optimizer": ">=1.8.0",
+            "jp.lilxyzw.liltoon": ">=1.7.0"
+          },
+          "license": "MIT",
+          "keywords": [
+            "VRChat",
+            "Avatar",
+            "NDMF",
+            "Quest",
+            "Optimization",
+            "kaguya"
+          ],
+          "repo": "https://reframe.illusive-isc.jp/vpm/index.json",
+          "url": "https://github.com/illusive-isc/ReFrameForKaguya/releases/download/0.0.5/jp.illusive-isc.reframe-kaguya-0.0.5.zip",
+          "zipSHA256": "dceebeaaa1b51f2f8e5dda8c95485ee66de60be7b8a4a1971c145dcea03097eb"
+        },
         "0.0.4": {
           "name": "jp.illusive-isc.reframe-kaguya",
           "version": "0.0.4",
@@ -278,6 +309,37 @@
     },
     "jp.illusive-isc.reframe-rurune": {
       "versions": {
+        "0.0.5": {
+          "name": "jp.illusive-isc.reframe-rurune",
+          "version": "0.0.5",
+          "displayName": "ReFrame for rurune",
+          "description": "ルルネ用のパッケージです。消す対象 (衣装・ギミック類) 及び Quest 対応用の差分設定。",
+          "unity": "2022.3",
+          "author": {
+            "name": "illusive_isc",
+            "url": "https://illusive_isc.jp"
+          },
+          "vpmDependencies": {
+            "jp.illusive-isc.reframe-core": ">=0.0.4",
+            "nadena.dev.ndmf": ">=1.6.0",
+            "nadena.dev.modular-avatar": ">=1.13.0",
+            "com.vrchat.avatars": ">=3.7.0",
+            "com.anatawa12.avatar-optimizer": ">=1.8.0",
+            "jp.lilxyzw.liltoon": ">=1.7.0"
+          },
+          "license": "MIT",
+          "keywords": [
+            "VRChat",
+            "Avatar",
+            "NDMF",
+            "Quest",
+            "Optimization",
+            "rurune"
+          ],
+          "repo": "https://reframe.illusive-isc.jp/vpm/index.json",
+          "url": "https://github.com/illusive-isc/ReFrameForRurune/releases/download/0.0.5/jp.illusive-isc.reframe-rurune-0.0.5.zip",
+          "zipSHA256": "f29e211211d318af6e5b9bb4e350a7d674635cb0463efaa54eda0f9014fcb87b"
+        },
         "0.0.4": {
           "name": "jp.illusive-isc.reframe-rurune",
           "version": "0.0.4",

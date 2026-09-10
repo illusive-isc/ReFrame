@@ -19,7 +19,9 @@ export const site = {
 	author: { name: 'illusive_isc', url: 'https://github.com/illusive-isc' },
 	github: 'https://github.com/illusive-isc',
 	/** X (Twitter) のアカウント。@ 付き。空なら twitter:site を出さない */
-	twitter: '',
+	twitter: '@illusive_isc',
+	/** 問い合わせ先。まず DM、返事が無ければメンション付きの投稿で知らせてもらう */
+	contact: { url: 'https://x.com/illusive_isc', handle: '@illusive_isc' },
 	packages: [
 		{
 			id: 'jp.illusive-isc.reframe-core',

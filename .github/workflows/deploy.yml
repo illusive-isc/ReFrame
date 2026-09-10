@@ -1,0 +1,52 @@
+# サイトを build して GitHub Pages に出す。
+# 起動: このリポジトリへの push / 手動 / パッケージの Release 後の repository_dispatch / 1 日 1 回 (保険)。
+# build の中で scripts/build-listing.mjs が GitHub Release から VPM の一覧 (vpm/index.json) を作り直す。
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [package-released]
+  schedule:
+    - cron: "0 18 * * *" # 毎日 03:00 JST
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build (listing + site)
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # リポジトリ名がサブパスになる (illusive-isc.github.io/ReFrame)
+          BASE_PATH: /${{ github.event.repository.name }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

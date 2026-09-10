@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { pages, site } from '$lib/site';
+	import Link from '$lib/Link.svelte';
 	import Seo from '$lib/Seo.svelte';
 </script>
 
@@ -11,7 +12,7 @@
 {#each site.packages as p}
 	<div class="card">
 		<h3>{p.name}</h3>
-		<p><a href="https://github.com/{p.repo}/blob/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a> / <a href="https://github.com/{p.repo}/releases" target="_blank" rel="noopener">Releases</a></p>
+		<p><Link href="https://github.com/{p.repo}/blob/main/CHANGELOG.md">CHANGELOG.md</Link> / <Link href="https://github.com/{p.repo}/releases">Releases</Link></p>
 	</div>
 {/each}
 

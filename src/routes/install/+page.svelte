@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { installerUrl, pages, site, vccAddRepoUrl } from '$lib/site';
 	import Contact from '$lib/Contact.svelte';
+	import Link from '$lib/Link.svelte';
 	import Seo from '$lib/Seo.svelte';
 
 	const page = pages.find((p) => p.path === '/install/')!;
@@ -41,7 +42,7 @@
 		<div class="card">
 			<h3>{pkg.name}</h3>
 			<p>{pkg.blurb}</p>
-			<a class="button" href={installerUrl(pkg.id)} download>ダウンロード</a>
+			<Link class="button" href={installerUrl(pkg.id)} download>ダウンロード</Link>
 		</div>
 	{/each}
 </div>
@@ -66,7 +67,7 @@
 </p>
 
 <p>
-	一覧だけを先に登録しておくこともできます。<a href={vccAddRepoUrl}>VCC に一覧を追加</a>
+	一覧だけを先に登録しておくこともできます。<Link href={vccAddRepoUrl}>VCC に一覧を追加</Link>
 	を押すか、VCC の Settings → Packages → Add Repository に次の URL を入れてください。
 </p>
 
@@ -80,15 +81,15 @@
 </p>
 
 <p>
-	手動で入れる方法は <a href="{base}/guide/">導入手順</a> にあります。各パッケージの zip は
-	<a href="{base}/packages/">パッケージ</a> から取得できます。
+	手動で入れる方法は <Link href="{base}/guide/">導入手順</Link> にあります。各パッケージの zip は
+	<Link href="{base}/packages/">パッケージ</Link> から取得できます。
 </p>
 
 <Contact />
 
 <div class="note">
 	<p>
-		配布しているファイルは <a href="https://github.com/anatawa12/VPMPackageAutoInstaller" target="_blank" rel="noopener">VPMPackageAutoInstaller</a>
+		配布しているファイルは <Link href="https://github.com/anatawa12/VPMPackageAutoInstaller">VPMPackageAutoInstaller</Link>
 		(anatawa12 氏、MIT ライセンス) で作っています。
 	</p>
 </div>

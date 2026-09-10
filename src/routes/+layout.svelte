@@ -2,6 +2,7 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { absolute, site } from '$lib/site';
+	import Link from '$lib/Link.svelte';
 	import CircuitBackground from '$lib/CircuitBackground.svelte';
 	import '../app.css';
 
@@ -62,7 +63,7 @@
 		{#each nav as item}
 			<a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
 		{/each}
-		<a href={site.github} target="_blank" rel="noopener">GitHub</a>
+		<Link href={site.github}>GitHub</Link>
 	</nav>
 </header>
 
@@ -71,10 +72,15 @@
 </main>
 
 <footer class="site-footer">
-	<span>© {new Date().getFullYear()} <a href={site.author.url}>{site.author.name}</a></span>
+	<span>© {new Date().getFullYear()} <Link href={site.author.url}>{site.author.name}</Link></span>
 	<span>VPM: <code>{site.listingUrl}</code></span>
 	<span>
 		問い合わせ:
-		<a href={site.contact.url} target="_blank" rel="noopener">{site.contact.handle}</a> へ DM
+		<Link href={site.contact.url}>{site.contact.handle}</Link> へ DM
+	</span>
+	<span class="legend">
+		リンクの印: <span aria-hidden="true">↗</span> 外部サイト /
+		<span aria-hidden="true">⧉</span> VCC などのアプリ /
+		<span aria-hidden="true">↓</span> ダウンロード
 	</span>
 </footer>

@@ -124,6 +124,11 @@ pre {
 	padding: 32px 24px 64px;
 }
 
+.site-footer .legend {
+	opacity: 0.75;
+	font-size: 0.85rem;
+}
+
 .site-footer {
 	display: flex;
 	justify-content: space-between;
@@ -154,6 +159,18 @@ h2 {
 h3 {
 	font-size: 1.05rem;
 	margin: 22px 0 6px;
+}
+
+h4 {
+	font-size: 0.95rem;
+	margin: 18px 0 4px;
+	color: var(--accent-2);
+}
+
+/* カードの中では見出しの上の余白を詰める */
+.card > h3:first-child,
+.card > h4:first-child {
+	margin-top: 0;
 }
 
 .lead {

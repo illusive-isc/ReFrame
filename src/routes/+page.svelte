@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { pages, site, vccAddRepoUrl } from '$lib/site';
+	import Link from '$lib/Link.svelte';
 	import Seo from '$lib/Seo.svelte';
 </script>
 
@@ -15,11 +16,25 @@
 </p>
 
 <div class="card">
-	<h3>VCC に追加する</h3>
-	<p>下のボタンで VRChat Creator Companion に一覧を登録できます。登録後、プロジェクトの Manage Packages から使うアバターの <strong>ReFrame for …</strong> を追加してください。共通部分の ReFrameCore は依存として一緒に入ります。</p>
+	<h3>追加する</h3>
+	<p>方法は 2 つあります。どちらでも同じものが入り、共通部分の ReFrameCore は依存として一緒に入ります。</p>
+
+	<h4>インストーラーで追加する</h4>
 	<p>
-		<a class="button" href={vccAddRepoUrl}>VCC に一覧を追加</a>
-		<a class="button secondary" href="{base}/guide/">導入手順を読む</a>
+		使うアバターのファイルを Unity に取り込むだけで入ります。VCC を開く必要はありません。更新のときも同じ手順です。
+	</p>
+	<p>
+		<Link class="button" href="{base}/install/">インストーラーで追加</Link>
+	</p>
+
+	<h4>VCC に追加する</h4>
+	<p>
+		VRChat Creator Companion に一覧を登録します。登録後、プロジェクトの Manage Packages から使うアバターの
+		<strong>ReFrame for …</strong> を追加してください。
+	</p>
+	<p>
+		<Link class="button secondary" href={vccAddRepoUrl}>VCC に一覧を追加</Link>
+		<Link class="button secondary" href="{base}/guide/">導入手順を読む</Link>
 	</p>
 	<p>手で登録する場合の URL: <code>{site.listingUrl}</code></p>
 </div>

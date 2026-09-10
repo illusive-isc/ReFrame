@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { pages, site } from '$lib/site';
+	import Link from '$lib/Link.svelte';
 	import Seo from '$lib/Seo.svelte';
 	import type { PageData } from './$types';
 
@@ -38,7 +39,9 @@
 		{#if p.latest}
 			<table>
 				<tbody>
-					<tr><th>zip</th><td><a href={p.latest.url}>{p.latest.url}</a></td></tr>
+					{#if p.latest.url}
+						<tr><th>zip</th><td><Link href={p.latest.url} download>{p.latest.url}</Link></td></tr>
+					{/if}
 					{#if p.latest.zipSHA256}
 						<tr><th>SHA256</th><td><code>{p.latest.zipSHA256}</code></td></tr>
 					{/if}
@@ -51,6 +54,6 @@
 				</tbody>
 			</table>
 		{/if}
-		<p><a href="https://github.com/{p.repo}/releases" target="_blank" rel="noopener">GitHub Releases</a></p>
+		<p><Link href="https://github.com/{p.repo}/releases">GitHub Releases</Link></p>
 	</div>
 {/each}

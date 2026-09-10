@@ -1,5 +1,6 @@
 <script lang="ts">
 	// 問い合わせ先の案内。文面を 1 か所にまとめて、各ページから同じものを出す。
+	import Link from '$lib/Link.svelte';
 	import { site } from '$lib/site';
 
 	// 見出しを出すか (ページ本文に置くときは true、注記の中では false)
@@ -12,7 +13,7 @@
 
 <p>
 	うまくいかないときや、消したい物が選べないときは、X の
-	<a href={site.contact.url} target="_blank" rel="noopener">{site.contact.handle}</a>
+	<Link href={site.contact.url}>{site.contact.handle}</Link>
 	まで DM でご連絡ください。
 </p>
 

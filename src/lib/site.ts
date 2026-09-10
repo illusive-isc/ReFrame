@@ -6,7 +6,7 @@ const basePath = '';
 
 export const site = {
 	name: 'ReFrame',
-	tagline: 'VRChat アバターのギミックを、壊さずに減らす',
+	tagline: 'IKUSIA アバターのギミックを、壊さずに減らす',
 	description:
 		'ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除く NDMF 拡張です。同期パラメーターの節約と Quest 簡易対応 (マテリアルの焼き込み・揺れ物の間引き) に対応します。',
 	origin,

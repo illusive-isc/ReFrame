@@ -13,7 +13,7 @@ const W = 1200;
 const H = 630;
 
 const NAME = 'ReFrame';
-const TAGLINE = ['VRChat アバターのギミックを、', '壊さずに減らす'];
+const TAGLINE = ['IKUSIA アバターのギミックを、', '壊さずに減らす'];
 const FONTS = "'Yu Gothic UI','Meiryo','Noto Sans JP','Hiragino Sans','Segoe UI',sans-serif";
 
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

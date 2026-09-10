@@ -31,14 +31,14 @@ export const site = {
 			id: 'jp.illusive-isc.reframe-kaguya',
 			name: 'ReFrame for kaguya',
 			repo: 'illusive-isc/ReFrameForKaguya',
-			summary: '輝夜用のパッケージ。消せる衣装・ギミック・エモートの一覧と、Quest 用の設定。',
+			summary: '輝夜用のパッケージ。消す対象 (衣装・ギミック類) 及び Quest 対応用の差分設定。',
 			avatar: 'kaguya'
 		},
 		{
 			id: 'jp.illusive-isc.reframe-rurune',
 			name: 'ReFrame for rurune',
 			repo: 'illusive-isc/ReFrameForRurune',
-			summary: 'ルルネ用のパッケージ。消せる衣装・ギミックの一覧と、Quest 用の設定。',
+			summary: 'ルルネ用のパッケージ。消す対象 (衣装・ギミック類) 及び Quest 対応用の差分設定。',
 			avatar: 'rurune'
 		}
 	]

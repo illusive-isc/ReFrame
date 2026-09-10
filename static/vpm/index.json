@@ -6,6 +6,41 @@
   "packages": {
     "jp.illusive-isc.reframe-core": {
       "versions": {
+        "0.0.4": {
+          "name": "jp.illusive-isc.reframe-core",
+          "version": "0.0.4",
+          "displayName": "ReFrameCore",
+          "description": "ReFrame の共通部分です。アバター用のパッケージを入れると、依存として一緒に入ります。",
+          "unity": "2022.3",
+          "author": {
+            "name": "illusive_isc",
+            "url": "https://illusive_isc.jp"
+          },
+          "vpmDependencies": {
+            "nadena.dev.ndmf": ">=1.6.0",
+            "nadena.dev.modular-avatar": ">=1.13.0",
+            "com.vrchat.avatars": ">=3.7.0",
+            "com.anatawa12.avatar-optimizer": ">=1.8.0",
+            "jp.lilxyzw.liltoon": ">=1.7.0"
+          },
+          "license": "MIT",
+          "url": "https://github.com/illusive-isc/ReFrameCore/releases/download/0.0.4/jp.illusive-isc.reframe-core-0.0.4.zip",
+          "dependencies": {
+            "com.unity.nuget.newtonsoft-json": "3.2.1"
+          },
+          "keywords": [
+            "VRChat",
+            "Avatar",
+            "NDMF",
+            "Quest",
+            "Optimization"
+          ],
+          "documentationUrl": "https://github.com/illusive-isc/ReFrameCore#readme",
+          "changelogUrl": "https://github.com/illusive-isc/ReFrameCore/blob/main/CHANGELOG.md",
+          "licensesUrl": "https://github.com/illusive-isc/ReFrameCore/blob/main/LICENSE",
+          "repo": "https://reframe.illusive-isc.jp/vpm/index.json",
+          "zipSHA256": "3c3d360504bb79ec8b3e7ddb6b86c115b681de6986aa6629a0f130a1729193bf"
+        },
         "0.0.3": {
           "name": "jp.illusive-isc.reframe-core",
           "version": "0.0.3",
@@ -115,6 +150,37 @@
     },
     "jp.illusive-isc.reframe-kaguya": {
       "versions": {
+        "0.0.4": {
+          "name": "jp.illusive-isc.reframe-kaguya",
+          "version": "0.0.4",
+          "displayName": "ReFrame for kaguya",
+          "description": "輝夜用のパッケージです。使わない衣装やギミックを、アバターを壊さずにビルド時だけ取り除きます。Quest 簡易対応にも対応しています。",
+          "unity": "2022.3",
+          "author": {
+            "name": "illusive_isc",
+            "url": "https://illusive_isc.jp"
+          },
+          "vpmDependencies": {
+            "jp.illusive-isc.reframe-core": ">=0.0.4",
+            "nadena.dev.ndmf": ">=1.6.0",
+            "nadena.dev.modular-avatar": ">=1.13.0",
+            "com.vrchat.avatars": ">=3.7.0",
+            "com.anatawa12.avatar-optimizer": ">=1.8.0",
+            "jp.lilxyzw.liltoon": ">=1.7.0"
+          },
+          "license": "MIT",
+          "keywords": [
+            "VRChat",
+            "Avatar",
+            "NDMF",
+            "Quest",
+            "Optimization",
+            "kaguya"
+          ],
+          "repo": "https://reframe.illusive-isc.jp/vpm/index.json",
+          "url": "https://github.com/illusive-isc/ReFrameForKaguya/releases/download/0.0.4/jp.illusive-isc.reframe-kaguya-0.0.4.zip",
+          "zipSHA256": "e23ce69ab88e9fc25295c2be66b13cb7f409dac3864f8af7b767b62b43701fa2"
+        },
         "0.0.3": {
           "name": "jp.illusive-isc.reframe-kaguya",
           "version": "0.0.3",
@@ -212,6 +278,37 @@
     },
     "jp.illusive-isc.reframe-rurune": {
       "versions": {
+        "0.0.4": {
+          "name": "jp.illusive-isc.reframe-rurune",
+          "version": "0.0.4",
+          "displayName": "ReFrame for rurune",
+          "description": "ルルネ用のパッケージです。使わない衣装やギミックを、アバターを壊さずにビルド時だけ取り除きます。Quest 簡易対応にも対応しています。",
+          "unity": "2022.3",
+          "author": {
+            "name": "illusive_isc",
+            "url": "https://illusive_isc.jp"
+          },
+          "vpmDependencies": {
+            "jp.illusive-isc.reframe-core": ">=0.0.4",
+            "nadena.dev.ndmf": ">=1.6.0",
+            "nadena.dev.modular-avatar": ">=1.13.0",
+            "com.vrchat.avatars": ">=3.7.0",
+            "com.anatawa12.avatar-optimizer": ">=1.8.0",
+            "jp.lilxyzw.liltoon": ">=1.7.0"
+          },
+          "license": "MIT",
+          "keywords": [
+            "VRChat",
+            "Avatar",
+            "NDMF",
+            "Quest",
+            "Optimization",
+            "rurune"
+          ],
+          "repo": "https://reframe.illusive-isc.jp/vpm/index.json",
+          "url": "https://github.com/illusive-isc/ReFrameForRurune/releases/download/0.0.4/jp.illusive-isc.reframe-rurune-0.0.4.zip",
+          "zipSHA256": "0221cab8824e673eaa7c4bb5d5bb713cdb61d387b6e3feeed734ec6fcd76283c"
+        },
         "0.0.3": {
           "name": "jp.illusive-isc.reframe-rurune",
           "version": "0.0.3",

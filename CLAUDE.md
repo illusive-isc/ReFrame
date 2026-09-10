@@ -16,8 +16,8 @@ ReFrame (VRChat アバターの非破壊ギミック削除 / Quest 簡易対応�
 
 ## 公開の流れ (GitHub Actions)
 
-- `.github/workflows/deploy.yml`: main への push / 手動 / `repository_dispatch` (package-released) / 毎日 1 回、で `npm run build` → GitHub Pages。build の中で一覧を作り直すので、手元で `npm run listing` を回さなくてよい。
-- 各パッケージの release.yml は Release 作成後に `illusive-isc/ReFrame` へ `repository_dispatch` を送る (最後の "Notify site" ステップ)。送るには各パッケージ リポジトリの Secrets に `SITE_DISPATCH_TOKEN` (ReFrame リポジトリへの contents:write を持つ Fine-grained PAT) が要る。無ければ warning を出して飛ばす (翌日の schedule で拾われる)。
+- `.github/workflows/deploy.yml`: main への push / 手動 / `repository_dispatch` (package-released) で `npm run build` → GitHub Pages。build の中で一覧を作り直すので、手元で `npm run listing` を回さなくてよい。**定期実行は持たない**ので、リリース時の通知が届かないと一覧は古いまま。その場合は Actions から手動実行する。
+- 各パッケージの release.yml は Release 作成後に `illusive-isc/ReFrame` へ `repository_dispatch` を送る (最後の "Notify site" ステップ)。送るには各パッケージ リポジトリの Secrets に `SITE_DISPATCH_TOKEN` (ReFrame リポジトリへの contents:write を持つ Fine-grained PAT) が要る。無いとリリースのジョブが失敗する (定期実行の保険が無いため、黙って飛ばすと一覧が更新されないまま気づけない)。
 - Pages の Source は "GitHub Actions" にする。
 
 ## 関係するもの

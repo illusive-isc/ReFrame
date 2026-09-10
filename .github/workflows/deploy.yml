@@ -1,9 +1,10 @@
 # サイトを build して GitHub Pages に出す。
-# 起動: このリポジトリへの push / 手動 / パッケージの Release 後の repository_dispatch / 30 分ごと。
+# 起動: このリポジトリへの push / 手動 / パッケージの Release 後の repository_dispatch。
 # build の中で scripts/build-listing.mjs が GitHub Release から VPM の一覧 (vpm/index.json) を作り直す。
 #
-# 30 分ごとの実行では、まず check ジョブが一覧だけを組み立てて公開中のものと見比べ、
-# 中身が変わったときだけ build と deploy に進む。無駄なデプロイをしないための仕組み。
+# 定期実行は持たない。パッケージ側が Release のたびに repository_dispatch を送ってくる前提なので、
+# 各パッケージのリポジトリに SITE_DISPATCH_TOKEN が登録されていないと一覧が更新されない。
+# 送られてこなかったときは、この画面から手動実行 (Run workflow) で追いつける。
 name: Deploy site
 
 on:
@@ -12,8 +13,6 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [package-released]
-  schedule:
-    - cron: "*/30 * * * *"
 
 permissions:
   contents: read
@@ -26,30 +25,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # 定期実行のときだけ、一覧に変化があるかを先に調べる。
-  # build-listing.mjs は Node の標準機能だけで動くので npm ci は不要。
-  check:
-    if: github.event_name == 'schedule'
-    runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.diff.outputs.changed }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Build listing
-        run: node scripts/build-listing.mjs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Compare with published listing
-        id: diff
-        run: node scripts/listing-changed.mjs
-
   build:
-    needs: [check]
-    # 定期実行以外は常に、定期実行なら一覧が変わったときだけ動かす
-    if: always() && (github.event_name != 'schedule' || needs.check.outputs.changed == 'true')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -63,6 +39,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # 独自ドメイン (reframe.illusive-isc.jp) をルートで使うので BASE_PATH は付けない
+      - name: Show trigger
+        if: github.event_name == 'repository_dispatch'
+        run: |
+          echo "::notice::${{ github.event.client_payload.repo }} ${{ github.event.client_payload.version }} のリリースで起動しました"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build

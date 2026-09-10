@@ -35,8 +35,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # リポジトリ名がサブパスになる (illusive-isc.github.io/ReFrame)
-          BASE_PATH: /${{ github.event.repository.name }}
+          # 独自ドメイン (refreme.illusive-isc.jp) をルートで使うので BASE_PATH は付けない
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build

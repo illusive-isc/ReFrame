@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://illusive-isc.github.io/ReFrame/sitemap.xml
+Sitemap: https://refreme.illusive-isc.jp/sitemap.xml

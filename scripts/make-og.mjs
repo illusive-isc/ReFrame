@@ -58,7 +58,7 @@ const text = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" h
   <text x="76" y="308" class="tagline">${escape(TAGLINE[0])}</text>
   <text x="76" y="352" class="tagline">${escape(TAGLINE[1])}</text>
   <text x="76" y="410" class="sub">${escape(SUB)}</text>
-  <text x="76" y="545" class="badge">illusive-isc.github.io/ReFrame</text>
+  <text x="76" y="545" class="badge">refreme.illusive-isc.jp</text>
 </svg>`);
 
 const layers = [{ input: background, top: 0, left: 0 }];

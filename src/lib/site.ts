@@ -1,8 +1,8 @@
 // サイト全体の設定。公開先を変えるときは origin と basePath を直す
 // (scripts/build-listing.mjs の listing.url と、各パッケージの package.json の repo も同じ値に揃える)。
 
-const origin = 'https://illusive-isc.github.io';
-const basePath = '/ReFrame';
+const origin = 'https://refreme.illusive-isc.jp';
+const basePath = '';
 
 export const site = {
 	name: 'ReFrame',

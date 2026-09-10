@@ -5,8 +5,8 @@ ReFrame (VRChat アバターの非破壊ギミック削除 / Quest 簡易対応�
 ## 役割
 
 - 利用者向けの説明 (はじめに / 導入手順 / パッケージ / 更新履歴)。
-- **VPM の一覧をこのサイトが配る**: `scripts/build-listing.mjs` が GitHub の Release (zip / package.json / .sha256) から `static/vpm/index.json` を生成し、`https://<公開先>/vpm/index.json` として配布する。VCC には `vcc://vpm/addRepo?url=<一覧 URL>` で登録できる (トップページのボタン)。
-- 公開先の URL は `src/lib/site.ts` の `listingUrl` と `scripts/build-listing.mjs` の `listing.url` の 2 か所 (同じ値にする)。公開先が決まったら両方を直し、3 つのパッケージの package.json の `repo` も同じ URL に差し替える (ReFrame の更新通知がこれを見る)。
+- **VPM の一覧をこのサイトが配る**: `scripts/build-listing.mjs` が GitHub の Release (zip / package.json / .sha256) から `static/vpm/index.json` を生成し、`https://refreme.illusive-isc.jp/vpm/index.json` として配布する。VCC には `vcc://vpm/addRepo?url=<一覧 URL>` で登録できる (トップページのボタン)。
+- 公開先は独自ドメイン **https://refreme.illusive-isc.jp** (GitHub Pages + `static/CNAME`)。サブパスは無いので deploy.yml で BASE_PATH は渡さない。URL は `src/lib/site.ts` の `origin` / `basePath` と `scripts/build-listing.mjs` の `listing.url` の 2 か所。変えたら 3 つのパッケージの package.json の `repo` も揃える (ReFrame の更新通知がこれを見る)。
 
 ## コマンド
 

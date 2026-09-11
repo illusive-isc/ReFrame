@@ -86,9 +86,8 @@ export const pages = [
 /** VCC に一覧を追加するリンク */
 export const vccAddRepoUrl = `vcc://vpm/addRepo?url=${encodeURIComponent(site.listingUrl)}`;
 
-/** 取り込むだけで入る unitypackage の URL (scripts/build-installers.mjs が作る) */
-export const installerUrl = (packageId: string) =>
-	`${basePath}/install/${packageId}-installer.unitypackage`;
+/** 取り込むだけで入る unitypackage の URL (ファイル名は scripts/build-installers.mjs が installers.json に書く) */
+export const installerUrl = (file: string) => `${basePath}/install/${file}`;
 
 /** サイト内のパスを絶対 URL にする */
 export const absolute = (path: string) => site.url + (path.startsWith('/') ? path : `/${path}`);

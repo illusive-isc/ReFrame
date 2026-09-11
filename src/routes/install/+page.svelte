@@ -4,6 +4,9 @@
 	import Contact from '$lib/Contact.svelte';
 	import Link from '$lib/Link.svelte';
 	import Seo from '$lib/Seo.svelte';
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 
 	const page = pages.find((p) => p.path === '/install/')!;
 
@@ -16,7 +19,7 @@
 	};
 	const avatars = site.packages
 		.filter((p) => 'avatar' in p)
-		.map((p) => ({ ...p, blurb: blurbs[p.id] ?? p.summary }));
+		.map((p) => ({ ...p, blurb: blurbs[p.id] ?? p.summary, installer: data.installers[p.id] }));
 </script>
 
 <Seo title={page.title} description={page.description} path={page.path} />
@@ -43,7 +46,13 @@
 		<div class="card">
 			<h3>{pkg.name}</h3>
 			<p>{pkg.blurb}</p>
-			<Link class="button" href={installerUrl(pkg.id)} download>ダウンロード</Link>
+			{#if pkg.installer}
+				<p><code>{pkg.installer.file}</code></p>
+				<Link class="button" href={installerUrl(pkg.installer.file)} download>ダウンロード ({pkg.installer.version})</Link>
+				<p class="small">ReFrameCore {pkg.installer.core} も一緒に入ります。</p>
+			{:else}
+				<p>準備中です。</p>
+			{/if}
 		</div>
 	{/each}
 </div>

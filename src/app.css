@@ -244,6 +244,28 @@ h4 {
 	font-weight: 700;
 }
 
+details.card > summary {
+	cursor: pointer;
+	font-weight: 600;
+	list-style: none;
+}
+
+details.card > summary::before {
+	content: '▸';
+	display: inline-block;
+	width: 1.2em;
+	color: var(--accent);
+	transition: transform 0.15s;
+}
+
+details.card[open] > summary::before {
+	transform: rotate(90deg);
+}
+
+details.card > summary::-webkit-details-marker {
+	display: none;
+}
+
 .note {
 	border-left: 4px solid var(--accent-2);
 	padding: 8px 14px;

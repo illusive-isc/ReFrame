@@ -17,9 +17,12 @@
 		'jp.illusive-isc.reframe-kaguya': '輝夜用のパッケージです。',
 		'jp.illusive-isc.reframe-rurune': 'ルルネ用のパッケージです。'
 	};
-	const avatars = site.packages
-		.filter((p) => 'avatar' in p)
-		.map((p) => ({ ...p, blurb: blurbs[p.id] ?? p.summary, installer: data.installers[p.id] }));
+	const avatars = $derived(
+		site.packages
+			.filter((p) => 'avatar' in p)
+			.map((p) => ({ ...p, blurb: blurbs[p.id] ?? p.summary, installer: data.installers[p.id] }))
+	);
+	const core = $derived(data.installers['jp.illusive-isc.reframe-core']);
 </script>
 
 <Seo title={page.title} description={page.description} path={page.path} />
@@ -62,6 +65,20 @@
 		共通部分の <strong>ReFrameCore</strong> は依存として一緒に入ります。別に入れる必要はありません。
 	</p>
 </div>
+
+<details class="card">
+	<summary>ReFrameCore だけを入れる / 更新する場合</summary>
+	<p>
+		アバター用のファイルを取り込めば ReFrameCore も最新版になるので、通常はこちらは不要です。
+		アバター用を入れ直さずに ReFrameCore だけを更新したいときに使ってください。
+	</p>
+	{#if core}
+		<p><code>{core.file}</code></p>
+		<Link class="button secondary" href={installerUrl(core.file)} download>ダウンロード ({core.version})</Link>
+	{:else}
+		<p>準備中です。</p>
+	{/if}
+</details>
 
 <h2>すでに入っている場合</h2>
 

@@ -101,6 +101,24 @@ for (const target of targets) {
 	console.log(`${target.label} ${version} (Core ${coreVersion}): ${outPath.slice(root.length + 1)} (${Math.round(size / 1024)}KB)`);
 }
 
+// Core 単体 (アバター用が入っていれば不要。念のための置き場)。
+{
+	const file = `ReFrame_Core_${coreVersion}.unitypackage`;
+	const configPath = resolve(workDir, `${coreId}.json`);
+	const outPath = resolve(outDir, file);
+	installers[coreId] = { file, version: coreVersion, core: coreVersion };
+	await writeFile(
+		configPath,
+		JSON.stringify(
+			{ vpmDependencies: { [coreId]: `>=${coreVersion}` }, vpmRepositories: [listingUrl, ...dependencyListings] },
+			null,
+			2
+		) + '\n'
+	);
+	await run(process.execPath, [creatorPath, configPath, outPath]);
+	console.log(`ReFrameCore ${coreVersion}: ${outPath.slice(root.length + 1)}`);
+}
+
 await writeFile(resolve(outDir, 'installers.json'), JSON.stringify(installers, null, 2) + '\n');
 await rm(workDir, { recursive: true, force: true });
-console.log(`${targets.length} 個の導入用ファイルを作りました`);
+console.log(`${targets.length + 1} 個の導入用ファイルを作りました`);

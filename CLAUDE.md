@@ -12,7 +12,7 @@ ReFrame (VRChat アバターの非破壊ギミック削除 / Quest 簡易対応�
 
 - `npm run dev` 開発サーバー / `npm run build` 静的書き出し (build/) / `npm run preview`
 - `npm run listing` VPM 一覧の再生成 (GitHub API。`GITHUB_TOKEN` があると回数制限が緩い)
-- 導入用 unitypackage は `scripts/build-installers.mjs` が build のたびに作り直す。名前は **`ReFrame_<アバター名>_<アバター用の最新版>.unitypackage`**、依存はアバター用と **Core の両方を最新版下限** で並べる (Core だけのリリースでもアバター側の下限を待たずに Core が入れ替わる)。ページは `static/install/installers.json` (生成物) を読んでリンクする。
+- 導入用 unitypackage は `scripts/build-installers.mjs` が build のたびに作り直す。名前は **`ReFrame_<アバター名>_<アバター用の最新版>.unitypackage`**、依存はアバター用と **Core の両方を最新版下限** で並べる。Core 単体の `ReFrame_Core_<版>.unitypackage` も作り、ページでは折りたたみ (通常は不要の但し書き付き) に置く (Core だけのリリースでもアバター側の下限を待たずに Core が入れ替わる)。ページは `static/install/installers.json` (生成物) を読んでリンクする。
 - サブパスで公開するときは `BASE_PATH=/ReFrame npm run build` (vite.config.ts の paths.base)。Git Bash では `MSYS_NO_PATHCONV=1` を付けないと `/ReFrame` が Windows のパスに化ける。Kit の設定 (adapter-static など) は svelte.config.js ではなく **vite.config.ts の sveltekit({...}) に書く** (テンプレートの方式)
 
 ## 公開の流れ (GitHub Actions)

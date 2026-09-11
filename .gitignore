@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 
 # 生成物 (ビルドで作り直す)
 .installer-work
+static/install/*.unitypackage
+static/install/installers.json
+static/vpm/index.json

@@ -5,7 +5,7 @@
 		title,
 		description = site.description,
 		path = '/',
-		image = '/og-image.png'
+		image = site.ogImage
 	}: { title?: string; description?: string; path?: string; image?: string } = $props();
 
 	const fullTitle = $derived(title && title !== site.name ? `${title} | ${site.name}` : site.name);

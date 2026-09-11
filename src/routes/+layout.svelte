@@ -25,7 +25,7 @@
 		name: site.name,
 		description: site.description,
 		url: site.url,
-		image: absolute('/og-image.png'),
+		image: absolute(site.ogImage),
 		applicationCategory: 'DeveloperApplication',
 		operatingSystem: 'Windows',
 		softwareRequirements: 'Unity 2022.3, VRChat SDK Avatars 3.7+, NDMF, Modular Avatar',

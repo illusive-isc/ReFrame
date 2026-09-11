@@ -7,6 +7,8 @@ const basePath = '';
 export const site = {
 	name: 'ReFrame',
 	tagline: 'IKUSIA アバターのギミックを、壊さずに減らす',
+	/** 共有カードの画像。作り直したら v を上げる (X / Facebook は画像 URL 単位でキャッシュする) */
+	ogImage: '/og-image.png?v=2',
 	description:
 		'ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除く NDMF 拡張です。同期パラメーターの節約と Quest 簡易対応 (マテリアルの焼き込み・揺れ物の間引き) に対応します。現在は輝夜 / ルルネに対応、ほかのアバターは開発中です。',
 	origin,

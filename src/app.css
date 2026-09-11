@@ -176,6 +176,12 @@ h4 {
 .lead {
 	color: var(--muted);
 	font-size: 1.05rem;
+	margin: 0 0 8px;
+}
+
+.supported {
+	color: var(--muted);
+	font-size: 0.9rem;
 	margin: 0 0 20px;
 }
 

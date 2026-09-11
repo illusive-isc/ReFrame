@@ -9,6 +9,7 @@
 
 <h1>{site.name}</h1>
 <p class="lead">{site.tagline}</p>
+<p class="supported">現在は輝夜 / ルルネに対応。ほかのアバターは開発中です。</p>
 
 <p>
 	ReFrame は、VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除くツールです。

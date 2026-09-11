@@ -16,6 +16,11 @@
 	</div>
 {/each}
 
+<h2>ReFrameCore 0.1.0</h2>
+<ul>
+	<li>更新のお知らせから zip を直接入れ替える「更新する…」を無くしました。更新は「更新ページを開く」からの unitypackage か VCC で行います。</li>
+</ul>
+
 <h2>ReFrameCore 0.0.7 / for kaguya 0.0.8 / for rurune 0.0.7</h2>
 <ul>
 	<li>Hierarchy の右クリックメニューを「ILLUSORY OVERRIDE → ReFrame」の下に移しました (Add Component と同じ場所)。</li>

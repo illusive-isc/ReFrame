@@ -14,6 +14,7 @@ const H = 630;
 
 const NAME = 'ReFrame';
 const TAGLINE = ['IKUSIA アバターのギミックを、', '壊さずに減らす'];
+const SUPPORTED = '現在 輝夜 / ルルネ対応。ほかは開発中';
 const FONTS = "'Yu Gothic UI','Meiryo','Noto Sans JP','Hiragino Sans','Segoe UI',sans-serif";
 
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -50,11 +51,13 @@ const text = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" h
     .name { font-family: ${FONTS}; font-size: 96px; font-weight: 700; fill: #ffffff; }
     .re { fill: #b48cff; }
     .tagline { font-family: ${FONTS}; font-size: 34px; font-weight: 600; fill: #e8ecf0; }
+    .supported { font-family: ${FONTS}; font-size: 24px; font-weight: 500; fill: #aab4c0; }
     .badge { font-family: ${FONTS}; font-size: 23px; font-weight: 600; fill: #5ee39a; }
   </style>
   <text x="72" y="268" class="name"><tspan class="re">Re</tspan>Frame</text>
   <text x="76" y="346" class="tagline">${escape(TAGLINE[0])}</text>
   <text x="76" y="392" class="tagline">${escape(TAGLINE[1])}</text>
+  <text x="76" y="440" class="supported">${escape(SUPPORTED)}</text>
   <text x="76" y="545" class="badge">reframe.illusive-isc.jp</text>
 </svg>`);
 

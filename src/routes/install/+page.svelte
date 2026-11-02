@@ -15,7 +15,8 @@
 	// (パッケージの中身の説明は /packages/ にある)。
 	const blurbs: Record<string, string> = {
 		'jp.illusive-isc.reframe-kaguya': '輝夜用のパッケージです。',
-		'jp.illusive-isc.reframe-rurune': 'ルルネ用のパッケージです。'
+		'jp.illusive-isc.reframe-rurune': 'ルルネ用のパッケージです。',
+		'jp.illusive-isc.reframe-chiyu': 'ちゆ (plium) 用のパッケージです。'
 	};
 	const avatars = $derived(
 		site.packages

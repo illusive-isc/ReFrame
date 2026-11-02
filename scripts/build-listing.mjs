@@ -19,7 +19,7 @@ const listing = {
 	id: 'jp.illusive-isc.reframe',
 	url: 'https://reframe.illusive-isc.jp/vpm/index.json',
 	author: 'illusive_isc',
-	repos: ['illusive-isc/ReFrameCore', 'illusive-isc/ReFrameForKaguya', 'illusive-isc/ReFrameForRurune']
+	repos: ['illusive-isc/ReFrameCore', 'illusive-isc/ReFrameForKaguya', 'illusive-isc/ReFrameForRurune', 'illusive-isc/ReFrameForChiyu']
 };
 
 const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'reframe-site-listing' };

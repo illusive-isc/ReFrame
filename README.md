@@ -1,6 +1,6 @@
 # ReFrame
 
-IKUSIA アバターのギミックを、壊さずに減らす。
+VRChat アバターのギミックを、壊さずに減らす。
 
 <https://reframe.illusive-isc.jp/>
 

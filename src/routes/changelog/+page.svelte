@@ -16,6 +16,12 @@
 	</div>
 {/each}
 
+<h2>ReFrameCore 0.8.0 / for Chiyu 0.1.0</h2>
+<ul>
+	<li>ちゆ (plium) 用の ReFrame for Chiyu を追加しました。服・髪・表情・小物・ジャンプ／ダッシュ・AFK・エモート・ロコモーションを消せ、Quest 簡易対応版の初期設定も入っています。</li>
+	<li>ReFrameCore: 固定して消した服がアップロード後に表示されることがある問題 (Modular Avatar の Merge Animator を使う衣装) と、残す項目が 8 個埋まったメニューに入らない問題を直しました。kaguya / rurune では「足の固定」の並び位置が変わります。</li>
+</ul>
+
 <h2>ReFrameCore 0.1.0</h2>
 <ul>
 	<li>更新のお知らせから zip を直接入れ替える「更新する…」を無くしました。更新は「更新ページを開く」からの unitypackage か VCC で行います。</li>

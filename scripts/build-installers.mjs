@@ -44,7 +44,8 @@ const dependencyListings = [
 const coreId = 'jp.illusive-isc.reframe-core';
 const targets = [
 	{ id: 'jp.illusive-isc.reframe-kaguya', avatar: 'kaguya', label: 'ReFrame for kaguya' },
-	{ id: 'jp.illusive-isc.reframe-rurune', avatar: 'rurune', label: 'ReFrame for rurune' }
+	{ id: 'jp.illusive-isc.reframe-rurune', avatar: 'rurune', label: 'ReFrame for rurune' },
+	{ id: 'jp.illusive-isc.reframe-chiyu', avatar: 'chiyu', label: 'ReFrame for Chiyu' }
 ];
 
 const compare = (a, b) => {

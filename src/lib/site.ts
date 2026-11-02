@@ -6,11 +6,11 @@ const basePath = '';
 
 export const site = {
 	name: 'ReFrame',
-	tagline: 'IKUSIA アバターのギミックを、壊さずに減らす',
+	tagline: 'VRChat アバターのギミックを、壊さずに減らす',
 	/** 共有カードの画像。作り直したら v を上げる (X / Facebook は画像 URL 単位でキャッシュする) */
-	ogImage: '/og-image.png?v=2',
+	ogImage: '/og-image.png?v=3',
 	description:
-		'ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除く NDMF 拡張です。同期パラメーターの節約と Quest 簡易対応 (マテリアルの焼き込み・揺れ物の間引き) に対応します。現在は輝夜 / ルルネに対応、ほかのアバターは開発中です。',
+		'ReFrame は VRChat アバターの衣装・ギミック・エモートのうち使わないものを、元のプレハブを壊さずにビルド時だけ取り除く NDMF 拡張です。同期パラメーターの節約と Quest 簡易対応 (マテリアルの焼き込み・揺れ物の間引き) に対応します。現在は輝夜 / ルルネ / ちゆに対応、ほかのアバターは開発中です。',
 	origin,
 	basePath,
 	/** 公開時の絶対 URL (canonical / OGP 用) */
@@ -44,6 +44,13 @@ export const site = {
 			repo: 'illusive-isc/ReFrameForRurune',
 			summary: 'ルルネ用のパッケージ。消す対象 (衣装・ギミック類) 及び Quest 対応用の差分設定。',
 			avatar: 'rurune'
+		},
+		{
+			id: 'jp.illusive-isc.reframe-chiyu',
+			name: 'ReFrame for Chiyu',
+			repo: 'illusive-isc/ReFrameForChiyu',
+			summary: 'ちゆ (plium) 用のパッケージ。消す対象 (衣装・髪・ギミック類) 及び Quest 対応用の差分設定。',
+			avatar: 'chiyu'
 		}
 	]
 };
@@ -67,7 +74,7 @@ export const pages = [
 		path: '/packages/',
 		title: 'パッケージ',
 		description:
-			'ReFrameCore / ReFrame for kaguya / ReFrame for rurune の最新版、配布 zip、SHA256、依存パッケージの一覧。',
+			'ReFrameCore / ReFrame for kaguya / ReFrame for rurune / ReFrame for Chiyu の最新版、配布 zip、SHA256、依存パッケージの一覧。',
 		priority: '0.7'
 	},
 	{

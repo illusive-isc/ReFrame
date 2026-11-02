@@ -19,7 +19,7 @@
 <h2>1. VCC に一覧を登録してパッケージを入れる</h2>
 <ol class="steps">
 	<li><Link href={vccAddRepoUrl}>VCC に一覧を追加</Link> を押すか、VCC の Settings → Packages → Add Repository に <code>{site.listingUrl}</code> を入れて追加します。</li>
-	<li>対象プロジェクトの Manage Packages で、使うアバターに合わせて <strong>ReFrame for kaguya</strong> または <strong>ReFrame for rurune</strong> を追加します。共通部分の <strong>ReFrameCore</strong> は依存として自動で入るので、別に選ぶ必要はありません。</li>
+	<li>対象プロジェクトの Manage Packages で、使うアバターに合わせて <strong>ReFrame for kaguya</strong> / <strong>ReFrame for rurune</strong> / <strong>ReFrame for Chiyu</strong> のどれかを追加します。共通部分の <strong>ReFrameCore</strong> は依存として自動で入るので、別に選ぶ必要はありません。</li>
 </ol>
 
 <h2>2. アバターに ReFrame を付ける</h2>

@@ -13,8 +13,8 @@ const W = 1200;
 const H = 630;
 
 const NAME = 'ReFrame';
-const TAGLINE = ['IKUSIA アバターのギミックを、', '壊さずに減らす'];
-const SUPPORTED = '現在 輝夜 / ルルネ対応。ほかは開発中';
+const TAGLINE = ['VRChat アバターのギミックを、', '壊さずに減らす'];
+const SUPPORTED = '現在 輝夜 / ルルネ / ちゆ対応。ほかは開発中';
 const FONTS = "'Yu Gothic UI','Meiryo','Noto Sans JP','Hiragino Sans','Segoe UI',sans-serif";
 
 const escape = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

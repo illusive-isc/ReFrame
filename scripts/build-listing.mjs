@@ -37,6 +37,26 @@ async function text(url) {
 	return res.text();
 }
 
+// Release の添付ファイルの中身。github.com のダウンロード口 (browser_download_url) が落ちていることがあるので
+// (2026-11-08、全部の版で 504 が続き、一覧を作り直せずデプロイが失敗した)、だめなら API の経路 (assets/{id}) で取る。
+// 一度落ちたら残りは最初から API で取る (504 は 1 件 11 秒ほど待たされるため)。
+let downloadBroken = false;
+async function assetText(asset) {
+	let reason = 'ダウンロード口は前に失敗';
+	if (!downloadBroken) {
+		try {
+			return await text(asset.browser_download_url);
+		} catch (e) {
+			reason = e.message;
+			downloadBroken = true;
+			console.warn(`ダウンロード口が使えないので、ここから先は API の経路で読みます (${reason})`);
+		}
+	}
+	const res = await fetch(asset.url, { headers: { ...headers, Accept: 'application/octet-stream' } });
+	if (!res.ok) throw new Error(`${reason} / API でも ${res.status} ${asset.url}`);
+	return res.text();
+}
+
 async function collect() {
 	const packages = {};
 	for (const repo of listing.repos) {
@@ -49,9 +69,9 @@ async function collect() {
 				console.warn(`${repo} ${rel.tag_name}: zip か package.json が無いので見送り`);
 				continue;
 			}
-			const manifest = JSON.parse(await text(manifestAsset.browser_download_url));
+			const manifest = JSON.parse(await assetText(manifestAsset));
 			const shaAsset = rel.assets.find((a) => a.name === `${zip.name}.sha256`);
-			const zipSHA256 = shaAsset ? (await text(shaAsset.browser_download_url)).trim() : undefined;
+			const zipSHA256 = shaAsset ? (await assetText(shaAsset)).trim() : undefined;
 			const entry = { ...manifest, url: zip.browser_download_url, ...(zipSHA256 ? { zipSHA256 } : {}) };
 			(packages[manifest.name] ??= { versions: {} }).versions[manifest.version] = entry;
 			console.log(`${manifest.name} ${manifest.version}${zipSHA256 ? '' : ' (SHA256 なし)'}`);

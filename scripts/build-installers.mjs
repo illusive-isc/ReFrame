@@ -66,11 +66,24 @@ await mkdir(workDir, { recursive: true });
 for (const name of await readdir(outDir))
 	if (name.endsWith('.unitypackage') || name === 'installers.json') await rm(resolve(outDir, name));
 
+// github.com のダウンロード口 (releases/download) が落ちていることがあるので (2026-11-08、504 が続きデプロイが失敗した)、
+// だめなら API の経路 (releases/tags → assets/{id}) で取る。build-listing.mjs と同じ。
+async function fetchCreator() {
+	const res = await fetch(CREATOR_URL);
+	if (res.ok) return Buffer.from(await res.arrayBuffer());
+	const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'reframe-site-installers' };
+	if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+	const rel = await fetch(`https://api.github.com/repos/anatawa12/VPMPackageAutoInstaller/releases/tags/${CREATOR_VERSION}`, { headers });
+	const asset = rel.ok ? (await rel.json()).assets?.find((a) => a.name === 'creator.mjs') : undefined;
+	const api = asset ? await fetch(asset.url, { headers: { ...headers, Accept: 'application/octet-stream' } }) : undefined;
+	if (!api?.ok) throw new Error(`creator.mjs を取得できません: ${res.status} ${CREATOR_URL} / API でも ${api?.status ?? rel.status}`);
+	console.warn(`ダウンロード口が使えないので、creator.mjs を API の経路で取りました (${res.status})`);
+	return Buffer.from(await api.arrayBuffer());
+}
+
 const creatorPath = resolve(workDir, 'creator.mjs');
 if (!existsSync(creatorPath)) {
-	const res = await fetch(CREATOR_URL);
-	if (!res.ok) throw new Error(`creator.mjs を取得できません: ${res.status} ${CREATOR_URL}`);
-	await writeFile(creatorPath, Buffer.from(await res.arrayBuffer()));
+	await writeFile(creatorPath, await fetchCreator());
 	console.log(`creator.mjs ${CREATOR_VERSION} を取得しました`);
 }
 
